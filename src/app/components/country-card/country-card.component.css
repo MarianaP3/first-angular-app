@@ -1,0 +1,30 @@
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  height: 390px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  img {
+    width: 280px;
+    height: auto;
+    border-radius: 8px;
+  }
+  border-left: 10px solid pink;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  height: 395px;
+}
+
+.highlight {
+  color: blue;
+}
+
+.title {
+  font-weight: semi-bold;
+  font-size: 20px;
+}

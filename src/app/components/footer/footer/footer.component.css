@@ -1,0 +1,20 @@
+.footer-container {
+  background-color: pink;
+  color: white;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-family: poppins, sans-serif;
+  margin-top: 30px;
+  align-items: center;
+}
+.text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 14px;
+  text-align: right;
+  margin-right: 15px;
+  height: 60px;
+}
