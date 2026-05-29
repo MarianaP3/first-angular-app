@@ -1,0 +1,89 @@
+<section class="page-header">
+  <div class="header-text">
+    <p class="hero-label">Mis looks</p>
+    <h1 class="title">Galería de Outfits</h1>
+    <p class="subtitle">
+      Todas tus combinaciones y estilos guardados. Explora cada look con sus prendas.
+    </p>
+  </div>
+</section>
+
+<section class="filters">
+  <div class="filters-row">
+    <div class="filter-field filter-field--search">
+      <label for="filterName">Nombre del outfit</label>
+      <input
+        id="filterName"
+        class="filter-input"
+        type="text"
+        placeholder="Buscar outfit..."
+        [value]="filterName()"
+        (input)="updateFilterName($event)"
+      />
+    </div>
+
+    <div class="filter-field">
+      <label for="filterStyle">Estilo</label>
+      <select
+        id="filterStyle"
+        class="filter-select"
+        [value]="filterStyle()"
+        (change)="updateFilterStyle($event)"
+      >
+        <option value="">Todos</option>
+        @for (style of styles(); track style) {
+          <option [value]="style">{{ style }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="filter-field">
+      <label for="filterOccasion">Ocasión</label>
+      <select
+        id="filterOccasion"
+        class="filter-select"
+        [value]="filterOccasion()"
+        (change)="updateFilterOccasion($event)"
+      >
+        <option value="">Todas</option>
+        @for (occasion of occasions(); track occasion) {
+          <option [value]="occasion">{{ occasion }}</option>
+        }
+      </select>
+    </div>
+
+    <button class="clear-button" type="button" (click)="clearFilters()">
+      Limpiar filtros
+    </button>
+  </div>
+
+  <p class="results-count">
+    {{ filteredOutfits().length }} de {{ outfits().length }} outfits
+  </p>
+</section>
+
+<section class="outfits-list">
+  @for (outfit of filteredOutfits(); track outfit.id) {
+    <article class="outfit-section">
+      <div class="outfit-header">
+        <div>
+          <p class="outfit-label">Outfit guardado</p>
+          <h2 class="outfit-title">{{ outfit.name }}</h2>
+        </div>
+        <div class="outfit-meta">
+          <span class="meta-tag">{{ outfit.style }}</span>
+          <span class="meta-tag">{{ outfit.occasion }}</span>
+          <span class="meta-count">{{ outfit.garments.length }} prendas</span>
+        </div>
+      </div>
+
+      <div class="garments-grid">
+        @for (garment of outfit.garments; track garment.id) {
+          <app-garment-card [garment]="garment"></app-garment-card>
+        }
+      </div>
+    </article>
+  } @empty {
+    <p class="empty-state">No se encontraron outfits con esos filtros.</p>
+  }
+</section>
