@@ -15,14 +15,14 @@
         </div>
         <div class="label">
             <label for="population">Color:</label>
-            <input class="inputField" type="number" id="population" name="population" required>
+            <input class="inputField" type="text" id="population" name="population" required>
         </div>
         <div class="label" id="region">
             <label for="region">Talla:</label>
-            <select formControlName="region" class="inputField" required>
-                @for (region of regions; track region) {
-                    <option [value]="region">
-                        {{ region }}
+            <select class="inputField" required>
+                @for (size of sizes; track size) {
+                    <option [value]="size">
+                        {{ size }}
                     </option>
                 }
             </select>

@@ -1,0 +1,83 @@
+<section class="page-header">
+  <div class="header-text">
+    <p class="hero-label">Mi closet</p>
+    <h1 class="title">Inventario</h1>
+    <p class="subtitle">Todas tus prendas en un solo lugar. Filtra por nombre, tipo, color o talla.</p>
+  </div>
+  <a routerLink="/new-garment" class="add-button">+ Agregar prenda</a>
+</section>
+
+<section class="filters">
+  <div class="filters-row">
+    <div class="filter-field filter-field--search">
+      <label for="filterName">Nombre</label>
+      <input
+        id="filterName"
+        class="filter-input"
+        type="text"
+        placeholder="Buscar prenda..."
+        [value]="filterName()"
+        (input)="updateFilterName($event)"
+      />
+    </div>
+
+    <div class="filter-field">
+      <label for="filterType">Tipo</label>
+      <select
+        id="filterType"
+        class="filter-select"
+        [value]="filterType()"
+        (change)="updateFilterType($event)"
+      >
+        <option value="">Todos</option>
+        @for (type of types(); track type) {
+          <option [value]="type">{{ type }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="filter-field">
+      <label for="filterColor">Color</label>
+      <select
+        id="filterColor"
+        class="filter-select"
+        [value]="filterColor()"
+        (change)="updateFilterColor($event)"
+      >
+        <option value="">Todos</option>
+        @for (color of colors(); track color) {
+          <option [value]="color">{{ color }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="filter-field">
+      <label for="filterSize">Talla</label>
+      <select
+        id="filterSize"
+        class="filter-select"
+        [value]="filterSize()"
+        (change)="updateFilterSize($event)"
+      >
+        <option value="">Todas</option>
+        @for (size of sizes(); track size) {
+          <option [value]="size">{{ size }}</option>
+        }
+      </select>
+    </div>
+
+    <button class="clear-button" type="button" (click)="clearFilters()">Limpiar filtros</button>
+  </div>
+
+  <p class="results-count">
+    {{ filteredGarments().length }} de {{ garments().length }} prendas
+  </p>
+</section>
+
+<section class="container">
+  @for (garment of filteredGarments(); track garment.name) {
+    <app-garment-card [garment]="garment"></app-garment-card>
+  } @empty {
+    <p class="empty-state">No se encontraron prendas con esos filtros.</p>
+  }
+</section>

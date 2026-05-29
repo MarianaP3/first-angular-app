@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="image-wrapper">
+    <img [src]="garment().image" [alt]="garment().name" />
+  </div>
+  <div class="card-body">
+    <p class="card-label">Prenda</p>
+    <p class="title">{{ garment().name }}</p>
+    <p class="detail"><span>Tipo</span> {{ garment().type }}</p>
+    <p class="detail"><span>Color</span> {{ garment().color }}</p>
+    <p class="detail"><span>Talla</span> {{ garment().size }}</p>
+  </div>
+</div>
