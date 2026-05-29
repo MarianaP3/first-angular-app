@@ -74,9 +74,6 @@
             (click)="toggleGarment(garment.id)"
           >
             <app-garment-card [garment]="garment"></app-garment-card>
-            <span class="selection-badge">
-              {{ isSelected(garment.id) ? '✓ En el armario' : 'Agregar' }}
-            </span>
           </button>
         }
       </div>

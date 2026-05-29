@@ -137,13 +137,12 @@
 }
 
 .wardrobes-list {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px 64px;
+  max-width: 1250px;
+  margin: 0px 140px;
+  padding: 0 0 64px;
   display: flex;
   flex-direction: column;
   gap: 48px;
-  width: 1250px;
 }
 
 .wardrobe-section {

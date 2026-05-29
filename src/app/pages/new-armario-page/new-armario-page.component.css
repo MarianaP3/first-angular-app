@@ -1,7 +1,7 @@
 .page {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 40px 24px 64px;
+  padding: 40px 0 64px;
 }
 
 .back-link {
@@ -123,8 +123,9 @@
 .garments-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
   gap: 24px;
+  width: 1200px;
 }
 
 .garment-option {
@@ -146,26 +147,12 @@
   outline-offset: 4px;
 }
 
-.selection-badge {
-  display: block;
-  margin-top: 10px;
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-align: center;
-  color: var(--color-text-muted);
-}
-
-.garment-option--selected .selection-badge {
-  color: var(--color-accent-dark);
-}
-
 .preview {
-  padding: 28px;
+  padding: 28px 15px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-soft);
+  width: 1250px;
 }
 
 .error-message {
@@ -192,7 +179,9 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 .button:hover {

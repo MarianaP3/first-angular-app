@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { AboutPageComponent } from './pages/about-page/about-page.component';
-import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { NewGarmentPageComponent } from './pages/new-garment-page/new-garment-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -25,8 +23,6 @@ export const routes: Routes = [
     { path: 'new-armario', component: NewArmarioPageComponent},
     { path: 'login', component: LoginPageComponent},
     { path: 'register', component: RegisterPageComponent},
-    { path: 'about', component: AboutPageComponent},
-    { path: 'contact', component: ContactPageComponent},
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'not-found', component: NotFoundPageComponent },
     { path: 'new-garment', component: NewGarmentPageComponent },
