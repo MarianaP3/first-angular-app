@@ -6,19 +6,19 @@
     <div class="formContainer">
         <form>
         <div class="label">
-            <label for="countryName">Nombre de la prenda:</label>
-            <input class="inputField" id="countryName" name="countryName" required>
+            <label for="garmentName">Nombre de la prenda:</label>
+            <input class="inputField" id="garmentName" name="garmentName" required>
         </div>
         <div class="label">
-            <label for="countryCode">Tipo de prenda:</label>
-            <input class="inputField" type="text" id="capital" name="capital" required>
+            <label for="garmentType">Tipo de prenda:</label>
+            <input class="inputField" type="text" id="garmentType" name="garmentType" required>
         </div>
         <div class="label">
-            <label for="population">Color:</label>
-            <input class="inputField" type="text" id="population" name="population" required>
+            <label for="garmentColor">Color:</label>
+            <input class="inputField" type="text" id="garmentColor" name="garmentColor" required>
         </div>
         <div class="label" id="region">
-            <label for="region">Talla:</label>
+            <label for="garmentSize">Talla:</label>
             <select class="inputField" required>
                 @for (size of sizes; track size) {
                     <option [value]="size">
@@ -28,10 +28,10 @@
             </select>
         </div>
         <div class="label">
-            <label for="flagUrl">Imagen (URL):</label>
-            <input class="inputField" type="text" id="flagUrl" name="flagUrl" required>
+            <label for="garmentImage">Imagen (URL):</label>
+            <input class="inputField" type="text" id="garmentImage" name="garmentImage" required>
         </div>
-        <button class="button" type="submit">Agregar a la colección</button>
+        <button class="button" type="submit">Agregar a mi Closet</button>
     </form>
     </div>
 </div>
