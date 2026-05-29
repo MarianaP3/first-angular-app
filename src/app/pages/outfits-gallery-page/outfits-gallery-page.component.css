@@ -16,6 +16,7 @@
 .add-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   padding: 12px 24px;
   background-color: var(--color-text);
   color: var(--color-surface);
@@ -27,6 +28,7 @@
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
+  width: 170px;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 

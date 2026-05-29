@@ -5,6 +5,7 @@
   overflow: hidden;
   box-shadow: var(--shadow-soft);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  height: 400px;
 }
 
 .card:hover {
