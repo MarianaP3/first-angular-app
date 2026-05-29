@@ -66,17 +66,20 @@
 <section class="outfits-list">
   @for (outfit of filteredOutfits(); track outfit.id) {
     <article class="outfit-section">
-      <div class="outfit-header">
-        <div>
-          <p class="outfit-label">Outfit guardado</p>
-          <h2 class="outfit-title">{{ outfit.name }}</h2>
+      <a [routerLink]="['/outfits', outfit.id]" class="outfit-header-link">
+        <div class="outfit-header">
+          <div>
+            <p class="outfit-label">Outfit guardado</p>
+            <h2 class="outfit-title">{{ outfit.name }}</h2>
+          </div>
+          <div class="outfit-meta">
+            <span class="meta-tag">{{ outfit.style }}</span>
+            <span class="meta-tag">{{ outfit.occasion }}</span>
+            <span class="meta-count">{{ outfit.garments.length }} prendas</span>
+            <span class="edit-hint">Editar outfit →</span>
+          </div>
         </div>
-        <div class="outfit-meta">
-          <span class="meta-tag">{{ outfit.style }}</span>
-          <span class="meta-tag">{{ outfit.occasion }}</span>
-          <span class="meta-count">{{ outfit.garments.length }} prendas</span>
-        </div>
-      </div>
+      </a>
 
       <div class="garments-grid">
         @for (garment of outfit.garments; track garment.id) {

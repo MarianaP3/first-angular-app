@@ -59,6 +59,10 @@ export class OutfitService {
 
   readonly allOutfits = this.outfits.asReadonly();
 
+  getById(id: string): Outfit | undefined {
+    return this.outfits().find((outfit) => outfit.id === id);
+  }
+
   getGarmentsForOutfit(outfit: Outfit): Garment[] {
     return outfit.garmentIds
       .map((id) => this.garmentService.getById(id))
@@ -71,5 +75,13 @@ export class OutfitService {
     );
 
     this.outfits.update((outfits) => [...outfits, { id: nextId, ...outfit }]);
+  }
+
+  updateOutfit(id: string, changes: Omit<Outfit, 'id'>): void {
+    this.outfits.update((outfits) =>
+      outfits.map((outfit) =>
+        outfit.id === id ? { id, ...changes } : outfit,
+      ),
+    );
   }
 }
