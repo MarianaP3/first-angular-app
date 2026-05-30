@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { GarmentCardComponent } from '../../components/garment-card/garment-card.component';
-import { CategoryService } from '../../services/category.service';
+import { GarmentCardComponent } from '../../../components/garment-card/garment-card.component';
+import { CategoryService } from '../../../services/category.service';
 
 @Component({
   selector: 'app-categorias-page',

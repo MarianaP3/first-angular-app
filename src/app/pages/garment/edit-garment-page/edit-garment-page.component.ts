@@ -1,7 +1,7 @@
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { CategoryService } from '../../services/category.service';
-import { GarmentService } from '../../services/garment.service';
+import { CategoryService } from '../../../services/category.service';
+import { GarmentService } from '../../../services/garment.service';
 
 @Component({
   selector: 'app-edit-garment-page',

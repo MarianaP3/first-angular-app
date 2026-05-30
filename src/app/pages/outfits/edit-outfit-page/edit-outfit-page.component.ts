@@ -1,20 +1,22 @@
-import { Component, computed, inject, signal } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
-import { GarmentCardComponent } from '../../components/garment-card/garment-card.component';
-import { GarmentService } from '../../services/garment.service';
-import { OutfitService } from '../../services/outfit.service';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { GarmentCardComponent } from '../../../components/garment-card/garment-card.component';
+import { GarmentService } from '../../../services/garment.service';
+import { OutfitService } from '../../../services/outfit.service';
 
 @Component({
-  selector: 'app-new-outfit-page',
+  selector: 'app-edit-outfit-page',
   imports: [GarmentCardComponent, RouterLink],
-  templateUrl: './new-outfit-page.component.html',
-  styleUrl: './new-outfit-page.component.css',
+  templateUrl: './edit-outfit-page.component.html',
+  styleUrl: './edit-outfit-page.component.css',
 })
-export class NewOutfitPageComponent {
+export class EditOutfitPageComponent implements OnInit {
   private garmentService = inject(GarmentService);
   private outfitService = inject(OutfitService);
+  private route = inject(ActivatedRoute);
   private router = inject(Router);
 
+  public outfitId = signal('');
   public name = signal('');
   public style = signal('');
   public occasion = signal('');
@@ -46,6 +48,28 @@ export class NewOutfitPageComponent {
       this.selectedGarmentIds().includes(garment.id),
     ),
   );
+
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (!id) {
+      this.router.navigate(['/outfits']);
+      return;
+    }
+
+    const outfit = this.outfitService.getById(id);
+
+    if (!outfit) {
+      this.router.navigate(['/not-found']);
+      return;
+    }
+
+    this.outfitId.set(outfit.id);
+    this.name.set(outfit.name);
+    this.style.set(outfit.style);
+    this.occasion.set(outfit.occasion);
+    this.selectedGarmentIds.set([...outfit.garmentIds]);
+  }
 
   updateName(event: Event): void {
     this.name.set((event.target as HTMLInputElement).value);
@@ -95,13 +119,18 @@ export class NewOutfitPageComponent {
       return;
     }
 
-    this.outfitService.addOutfit({
+    this.outfitService.updateOutfit(this.outfitId(), {
       name: this.name().trim(),
       style: this.style(),
       occasion: this.occasion(),
       garmentIds: this.selectedGarmentIds(),
     });
 
+    this.router.navigate(['/outfits']);
+  }
+
+  deleteOutfit(): void {
+    this.outfitService.deleteOutfit(this.outfitId());
     this.router.navigate(['/outfits']);
   }
 }

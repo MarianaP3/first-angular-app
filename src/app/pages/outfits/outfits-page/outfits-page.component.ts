@@ -1,13 +1,13 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { GarmentCardComponent } from '../../components/garment-card/garment-card.component';
-import { OutfitService } from '../../services/outfit.service';
+import { GarmentCardComponent } from '../../../components/garment-card/garment-card.component';
+import { OutfitService } from '../../../services/outfit.service';
 
 @Component({
   selector: 'app-outfits-gallery-page',
   imports: [GarmentCardComponent, RouterLink],
-  templateUrl: './outfits-gallery-page.component.html',
-  styleUrl: './outfits-gallery-page.component.css',
+  templateUrl: './outfits-page.component.html',
+  styleUrl: './outfits-page.component.css',
 })
 export class OutfitsGalleryPageComponent {
   private outfitService = inject(OutfitService);
@@ -31,7 +31,8 @@ export class OutfitsGalleryPageComponent {
       .filter((outfit) => {
         const name = this.filterName().trim().toLowerCase();
         if (name && !outfit.name.toLowerCase().includes(name)) return false;
-        if (this.filterStyle() && outfit.style !== this.filterStyle()) return false;
+        if (this.filterStyle() && outfit.style !== this.filterStyle())
+          return false;
         if (this.filterOccasion() && outfit.occasion !== this.filterOccasion())
           return false;
         return true;

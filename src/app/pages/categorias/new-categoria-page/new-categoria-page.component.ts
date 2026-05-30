@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { CategoryService } from '../../services/category.service';
+import { CategoryService } from '../../../services/category.service';
 
 @Component({
   selector: 'app-new-categoria-page',

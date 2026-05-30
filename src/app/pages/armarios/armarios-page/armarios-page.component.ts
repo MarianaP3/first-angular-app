@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { GarmentCardComponent } from '../../components/garment-card/garment-card.component';
-import { WardrobeService } from '../../services/wardrobe.service';
+import { GarmentCardComponent } from '../../../components/garment-card/garment-card.component';
+import { WardrobeService } from '../../../services/wardrobe.service';
 
 @Component({
   selector: 'app-armarios-page',

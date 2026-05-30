@@ -1,14 +1,14 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { GarmentCardComponent } from '../../components/garment-card/garment-card.component';
-import { CategoryService } from '../../services/category.service';
-import { GarmentService } from '../../services/garment.service';
+import { GarmentCardComponent } from '../../../components/garment-card/garment-card.component';
+import { CategoryService } from '../../../services/category.service';
+import { GarmentService } from '../../../services/garment.service';
 
 @Component({
   selector: 'app-inventory-page',
   imports: [GarmentCardComponent, RouterLink],
-  templateUrl: './inventory-page.component.html',
-  styleUrl: './inventory-page.component.css',
+  templateUrl: './garment-page.component.html',
+  styleUrl: './garment-page.component.css',
 })
 export class InventoryPageComponent {
   private garmentService = inject(GarmentService);

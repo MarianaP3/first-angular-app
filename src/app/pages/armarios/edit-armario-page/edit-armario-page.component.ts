@@ -1,8 +1,8 @@
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { GarmentCardComponent } from '../../components/garment-card/garment-card.component';
-import { GarmentService } from '../../services/garment.service';
-import { WardrobeService } from '../../services/wardrobe.service';
+import { GarmentCardComponent } from '../../../components/garment-card/garment-card.component';
+import { GarmentService } from '../../../services/garment.service';
+import { WardrobeService } from '../../../services/wardrobe.service';
 
 @Component({
   selector: 'app-edit-armario-page',
