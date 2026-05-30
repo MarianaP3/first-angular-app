@@ -11,6 +11,7 @@ import { NewOutfitPageComponent } from './pages/new-outfit-page/new-outfit-page.
 import { EditOutfitPageComponent } from './pages/edit-outfit-page/edit-outfit-page.component';
 import { ArmariosPageComponent } from './pages/armarios-page/armarios-page.component';
 import { NewArmarioPageComponent } from './pages/new-armario-page/new-armario-page.component';
+import { EditArmarioPageComponent } from './pages/edit-armario-page/edit-armario-page.component';
 
 export const routes: Routes = [
     { path: 'home', component: HomePageComponent},
@@ -20,6 +21,7 @@ export const routes: Routes = [
     { path: 'outfits/:id', component: EditOutfitPageComponent},
     { path: 'new-outfit', component: NewOutfitPageComponent},
     { path: 'armarios', component: ArmariosPageComponent},
+    { path: 'armarios/:id', component: EditArmarioPageComponent},
     { path: 'new-armario', component: NewArmarioPageComponent},
     { path: 'login', component: LoginPageComponent},
     { path: 'register', component: RegisterPageComponent},

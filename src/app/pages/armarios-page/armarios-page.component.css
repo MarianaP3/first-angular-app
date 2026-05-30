@@ -27,7 +27,9 @@
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
   width: 170px;
   justify-content: center;
 }
@@ -124,7 +126,9 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 .clear-button:hover {
@@ -153,6 +157,21 @@
   box-shadow: var(--shadow-soft);
   padding: 28px 28px 32px;
   width: 1250px;
+}
+
+.wardrobe-header-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.wardrobe-header-link:hover {
+  opacity: 0.85;
+}
+
+.wardrobe-header-link:hover .edit-hint {
+  color: var(--color-accent-dark);
 }
 
 .wardrobe-header {
@@ -210,6 +229,17 @@
 .meta-count {
   font-size: 0.75rem;
   color: var(--color-text-muted);
+  margin-left: 10px;
+}
+
+.edit-hint {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  transition: color 0.2s ease;
+  margin-left: 10px;
 }
 
 .garments-grid {

@@ -51,6 +51,14 @@ export class WardrobeService {
     ]);
   }
 
+  updateWardrobe(id: string, changes: Omit<Wardrobe, 'id'>): void {
+    this.wardrobes.update((wardrobes) =>
+      wardrobes.map((wardrobe) =>
+        wardrobe.id === id ? { id, ...changes } : wardrobe,
+      ),
+    );
+  }
+
   deleteWardrobe(id: string): void {
     this.wardrobes.update((wardrobes) =>
       wardrobes.filter((wardrobe) => wardrobe.id !== id),

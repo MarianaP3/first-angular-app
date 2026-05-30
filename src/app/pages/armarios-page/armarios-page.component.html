@@ -51,19 +51,22 @@
 <section class="wardrobes-list">
   @for (wardrobe of filteredWardrobes(); track wardrobe.id) {
     <article class="wardrobe-section">
-      <div class="wardrobe-header">
-        <div>
-          <p class="wardrobe-label">Armario</p>
-          <h2 class="wardrobe-title">{{ wardrobe.name }}</h2>
-          @if (wardrobe.description) {
-            <p class="wardrobe-description">{{ wardrobe.description }}</p>
-          }
+      <a [routerLink]="['/armarios', wardrobe.id]" class="wardrobe-header-link">
+        <div class="wardrobe-header">
+          <div>
+            <p class="wardrobe-label">Armario</p>
+            <h2 class="wardrobe-title">{{ wardrobe.name }}</h2>
+            @if (wardrobe.description) {
+              <p class="wardrobe-description">{{ wardrobe.description }}</p>
+            }
+          </div>
+          <div class="wardrobe-meta">
+            <span class="meta-tag">{{ wardrobe.location }}</span>
+            <span class="meta-count">{{ wardrobe.garments.length }} prendas</span>
+            <span class="edit-hint">Editar armario →</span>
+          </div>
         </div>
-        <div class="wardrobe-meta">
-          <span class="meta-tag">{{ wardrobe.location }}</span>
-          <span class="meta-count">{{ wardrobe.garments.length }} prendas</span>
-        </div>
-      </div>
+      </a>
 
       <div class="garments-grid">
         @for (garment of wardrobe.garments; track garment.id) {
