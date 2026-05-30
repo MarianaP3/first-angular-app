@@ -1,0 +1,68 @@
+<section class="page-header">
+  <div class="header-text">
+    <p class="hero-label">Administración</p>
+    <h1 class="title">Usuarios</h1>
+    <p class="subtitle">
+      Consulta y administra las cuentas registradas en SmartCloset.
+    </p>
+  </div>
+</section>
+
+<section class="filters">
+  <div class="filters-row">
+    <div class="filter-field filter-field--search">
+      <label for="filterSearch">Buscar usuario</label>
+      <input
+        id="filterSearch"
+        class="filter-input"
+        type="text"
+        placeholder="Nombre o correo..."
+        [value]="filterSearch()"
+        (input)="updateFilterSearch($event)"
+      />
+    </div>
+
+    <div class="filter-field">
+      <label for="filterRole">Rol</label>
+      <select
+        id="filterRole"
+        class="filter-select"
+        [value]="filterRole()"
+        (change)="updateFilterRole($event)"
+      >
+        <option value="">Todos</option>
+        @for (role of roles; track role) {
+          <option [value]="role">{{ role }}</option>
+        }
+      </select>
+    </div>
+
+    <button class="clear-button" type="button" (click)="clearFilters()">
+      Limpiar filtros
+    </button>
+  </div>
+
+  <p class="results-count">
+    {{ filteredUsers().length }} de {{ users().length }} usuarios
+  </p>
+</section>
+
+<section class="users-list">
+  @for (user of filteredUsers(); track user.id) {
+    <a [routerLink]="['/usuarios', user.id]" class="user-card">
+      <div class="user-info">
+        <p class="user-label">Usuario</p>
+        <h2 class="user-name">{{ user.name }}</h2>
+        <p class="user-email">{{ user.email }}</p>
+      </div>
+      <div class="user-meta">
+        <span class="role-tag" [class.role-tag--admin]="user.role === 'Administrador'">
+          {{ user.role }}
+        </span>
+        <span class="edit-hint">Editar usuario →</span>
+      </div>
+    </a>
+  } @empty {
+    <p class="empty-state">No se encontraron usuarios con esos filtros.</p>
+  }
+</section>

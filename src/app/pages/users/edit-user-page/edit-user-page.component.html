@@ -1,0 +1,83 @@
+<div class="page">
+  <a routerLink="/usuarios" class="back-link">← Volver a usuarios</a>
+
+  <section class="page-header">
+    <p class="hero-label">Editar usuario</p>
+    <h1 class="title">Modificar cuenta</h1>
+    <p class="subtitle">
+      Actualiza los datos del usuario. Deja la contraseña en blanco si no deseas cambiarla.
+    </p>
+    <div class="divider"></div>
+  </section>
+
+  <form class="form" (submit)="save($event)">
+    <div class="form-fields">
+      <div class="label">
+        <label for="userName">Nombre</label>
+        <input
+          class="inputField"
+          id="userName"
+          name="userName"
+          [value]="name()"
+          (input)="updateName($event)"
+          required
+        />
+      </div>
+
+      <div class="label">
+        <label for="userEmail">Correo electrónico</label>
+        <input
+          class="inputField"
+          id="userEmail"
+          name="userEmail"
+          type="email"
+          [value]="email()"
+          (input)="updateEmail($event)"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="form-fields">
+      <div class="label">
+        <label for="userRole">Rol</label>
+        <select
+          class="inputField"
+          id="userRole"
+          name="userRole"
+          [value]="role()"
+          (change)="updateRole($event)"
+          required
+        >
+          @for (userRole of roles; track userRole) {
+            <option [value]="userRole">{{ userRole }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="label">
+        <label for="userPassword">Nueva contraseña (opcional)</label>
+        <input
+          class="inputField"
+          id="userPassword"
+          name="userPassword"
+          type="password"
+          placeholder="••••••••"
+          [value]="password()"
+          (input)="updatePassword($event)"
+        />
+      </div>
+    </div>
+
+    @if (errorMessage()) {
+      <p class="error-message">{{ errorMessage() }}</p>
+    }
+
+    <div class="buttons-container">
+      <button class="button" type="submit">Guardar cambios</button>
+      <button class="delete-button" type="button" (click)="deleteUser()">
+        Eliminar usuario
+      </button>
+    </div>
+  </form>
+</div>

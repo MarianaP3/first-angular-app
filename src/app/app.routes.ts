@@ -15,6 +15,8 @@ import { EditArmarioPageComponent } from './pages/armarios/edit-armario-page/edi
 import { CategoriasPageComponent } from './pages/categorias/categorias-page/categorias-page.component';
 import { NewCategoriaPageComponent } from './pages/categorias/new-categoria-page/new-categoria-page.component';
 import { EditCategoriaPageComponent } from './pages/categorias/edit-categoria-page/edit-categoria-page.component';
+import { UsersPageComponent } from './pages/users/users-page/users-page.component';
+import { EditUserPageComponent } from './pages/users/edit-user-page/edit-user-page.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -29,6 +31,8 @@ export const routes: Routes = [
   { path: 'categorias', component: CategoriasPageComponent },
   { path: 'categorias/:id', component: EditCategoriaPageComponent },
   { path: 'new-categoria', component: NewCategoriaPageComponent },
+  { path: 'usuarios', component: UsersPageComponent },
+  { path: 'usuarios/:id', component: EditUserPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
